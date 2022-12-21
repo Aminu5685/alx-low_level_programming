@@ -1,11 +1,31 @@
-#include <unistd.h>
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
 
 /**
- * main - write to stdout
- * Return: Always 0
+ * main - Entry point
+ *
+ * Return: Always 0 (success)
  */
 int main(void)
 {
-	write(1, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 59);
-	return (1);
+	int n;
+
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
+
+	if (n < 0)
+	{
+		printf("%d is negative\n", n);
+	}
+	else if (n > 0)
+	{
+		printf("%d is positive\n", n);
+	}
+	else
+	{
+		printf("%d is zero\n", n);
+	}
+
+	return (0);
 }
