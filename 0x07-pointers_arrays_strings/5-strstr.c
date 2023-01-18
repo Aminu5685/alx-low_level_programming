@@ -1,30 +1,26 @@
 #include "main.h"
 
 /**
- * rev_string - reverses a string.
- * @s: input string.
+ * *_strstr - locates a substring
+ * @haystack: string to search in
+ * @needle: substring to look for
+ *
+ * Return: pointer to the beginning of the located substring
+ * or NULL if the substring is not found
  */
-
-void rev_string(char *s)
+char *_strstr(char *haystack, char *needle)
 {
-	int k = 0, i, j;
-	char *str, temp;
+	int i, j;
 
-	while (k >= 0)
+	for (i = 0; haystack[i] != '\0'; i++)
 	{
-		if (s[k] == '\0')
-			break;
-		k++;
-	}
-	str = s;
-
-	for (i = 0; i < (k - 1); i++)
-	{
-		for (j = i + 1; j > 0; j--)
+		for (j = 0; needle[j] != '\0'; j++)
 		{
-			temp = *(str + j);
-			*(str + j) = *(str + (j - 1));
-			*(str + (j - 1)) = temp;
+			if (haystack[i + j] != needle[j])
+				break;
 		}
+		if (!needle[j])
+			return (&haystack[i]);
 	}
+	return ('\0');
 }
