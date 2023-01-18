@@ -1,22 +1,26 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
 
 /**
- * print_array - prints n elements of an array of integers.
- * @a: input array.
- * @n: input n elements
+ * print_diagsums - prints the sum of the two diagonals
+ * of a square matrix of integers
+ * @a: square matrix of which we print the sum of diagonals
+ * @size: size of the matrix
  */
-
-void print_array(int *a, int n)
+void print_diagsums(int *a, int size)
 {
-	int i = 0;
+	int i;
 
-	for (; i < n; i++)
+	unsigned int sum, sum1;
+
+	sum = 0;
+	sum1 = 0;
+
+	for (i = 0; i < size; i++)
 	{
-		printf("%d", *(a + i));
-		if (i != (n - 1))
-			printf(", ");
+		sum += a[(size * i) + i];
+		sum1 += a[(size * (i + 1)) - (i + 1)];
 	}
 
-	printf("\n");
+	printf("%d, %d\n", sum, sum1);
 }
