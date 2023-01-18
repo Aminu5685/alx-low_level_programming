@@ -1,28 +1,17 @@
 #include "main.h"
 
 /**
- * puts_half - prints half of a string.
- * @str: input string.
+ * print_chessboard - prints chessboard
+ * @a: 2-D array
  */
-
-void puts_half(char *str)
+void print_chessboard(char (*a)[8])
 {
-	int j = 0, i;
+	int row, column;
 
-	while (j >= 0)
+	for (row = 0; row < 8; row++)
 	{
-		if (str[j] == '\0')
-			break;
-		j++;
+		for (column = 0; column < 8; column++)
+			_putchar(a[row][column]);
+		_putchar('\n');
 	}
-
-	if (j % 2 == 1)
-		i = j / 2;
-	else
-		i = (j - 1) / 2;
-
-	for (i++; i < j; i++)
-		_putchar(str[i]);
-
-	_putchar('\n');
 }
